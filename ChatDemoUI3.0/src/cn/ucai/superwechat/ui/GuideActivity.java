@@ -1,13 +1,12 @@
 package cn.ucai.superwechat.ui;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
 import cn.ucai.superwechat.R;
+import cn.ucai.superwechat.utils.MFGT;
 
-public class GuideActivity extends AppCompatActivity {
+public class GuideActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,10 +15,10 @@ public class GuideActivity extends AppCompatActivity {
     }
 
     public void login(View view) {
-        startActivity(new Intent(this,LoginActivity.class));
+        MFGT.gotoLogin(this);
     }
 
     public void register(View view) {
-        startActivity(new Intent(this,RegisterActivity.class));
+        MFGT.gotoRegister(this);
     }
 }
