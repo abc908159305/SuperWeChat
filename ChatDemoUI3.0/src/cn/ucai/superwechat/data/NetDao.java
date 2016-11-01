@@ -33,6 +33,14 @@ public class NetDao {
                 .post()
                 .execute(listener);
     }
+    public static void unregister(Context context,String userName,
+                                OkHttpUtils.OnCompleteListener<Result> listener) {
+        OkHttpUtils<Result> utils = new OkHttpUtils(context);
+        utils.setRequestUrl(I.REQUEST_UNREGISTER)
+                .addParam(I.User.USER_NAME,userName)
+                .targetClass(Result.class)
+                .execute(listener);
+    }
     public static void updatenick(Context context,String userName, String userNick,
                              OkHttpUtils.OnCompleteListener<String> listener) {
         OkHttpUtils<String> utils = new OkHttpUtils(context);
