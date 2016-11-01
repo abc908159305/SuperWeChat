@@ -7,6 +7,6 @@
     <color name="result_view">#b0000000</color>
     <color name="viewfinder_laser">#E9E9E9</color>
     <!-- end zxing -->
-    <color name="green">#60bc71</color>
+    <color name="mygreen">#60bc71</color>
     
 </resources>
