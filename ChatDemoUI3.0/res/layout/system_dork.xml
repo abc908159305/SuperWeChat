@@ -9,6 +9,18 @@
         android:layout_height="20dp"
         android:src="@drawable/icon_back"
         android:layout_centerVertical="true"
+        android:visibility="gone"
+        />
+    <TextView
+        android:id="@+id/tv_Back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="18dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="#ffffff"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
         />
     <TextView
         android:id="@+id/tv_Title"
@@ -18,5 +30,28 @@
         android:textSize="18dp"
         android:layout_centerInParent="true"
         android:textColor="#ffffff"
+        android:visibility="gone"
+        />
+    <TextView
+        android:id="@+id/tv_rightText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="@string/menu_addfriend"
+        android:textColor="#ffffff"
+        android:textSize="18dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:visibility="gone"
+        />
+    <Button
+        android:id="@+id/btn_rightBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/addcontact_send_msg"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@color/green"
+        android:visibility="gone"
         />
 </RelativeLayout>

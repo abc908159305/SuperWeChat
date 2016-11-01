@@ -80,7 +80,7 @@
         android:textColor="#ffffff"
         android:textSize="20dp"
         android:layout_gravity="center_horizontal"
-        android:background="#60bc71"
+        android:background="@color/green"
         android:onClick="register"
         />
     <RelativeLayout
