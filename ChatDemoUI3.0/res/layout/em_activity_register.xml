@@ -138,6 +138,7 @@
         android:layout_gravity="center_horizontal"
         />
     <Button
+        android:id="@+id/register"
         android:layout_marginTop="40dp"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
@@ -145,7 +146,6 @@
         android:textColor="#ffffff"
         android:textSize="20dp"
         android:layout_gravity="center_horizontal"
-        android:background="#60bc71"
-        android:onClick="register"
+        android:background="@color/mygreen"
         />
 </LinearLayout>
