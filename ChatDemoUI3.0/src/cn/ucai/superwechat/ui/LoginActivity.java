@@ -209,11 +209,14 @@ public class LoginActivity extends BaseActivity {
                             UserDao dao = new UserDao(mContext);
                             dao.saveUser(user);
                             SuperWeChatHelper.getInstance().setCurrentUser(user);
+                            loginSuccess();
                         }
                     } else {
                         pd.dismiss();
-                        L.e(TAG,"login fail,,,,,,"+result.getRetCode());
+                        L.e(TAG, "login fail,,,,,," + result.getRetCode());
                     }
+                } else {
+                    pd.dismiss();
                 }
                 loginSuccess();
             }
