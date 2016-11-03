@@ -51,6 +51,8 @@ public class UserDao {
 	public UserDao(Context context) {
 	}
 
+
+
 	/**
 	 * save contact list
 	 * 

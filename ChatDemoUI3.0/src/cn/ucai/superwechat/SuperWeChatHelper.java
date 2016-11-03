@@ -219,6 +219,18 @@ public class SuperWeChatHelper {
             public EaseUser getUser(String username) {
                 return getUserInfo(username);
             }
+
+            @Override
+            public User getAppUser(String username) {
+                String name = SuperWeChatHelper.getInstance().getCurrentUser().getMUserName();
+                if (username.equals(name)) {
+                    return SuperWeChatHelper.getInstance().getCurrentUser();
+                } else {
+                    UserDao dao = new UserDao(SuperWeChatApplication.getInstance());
+                    User user = dao.getUser(username);
+                    return user;
+                }
+            }
         });
 
         //set options 
@@ -849,9 +861,8 @@ public class SuperWeChatHelper {
 	
 	/**
 	 * update contact list
-	 * 
-	 * @param contactList
-	 */
+	 *
+     */
 	public void setContactList(Map<String, EaseUser> aContactList) {
 		if(aContactList == null){
 		    if (contactList != null) {
@@ -922,8 +933,7 @@ public class SuperWeChatHelper {
 	 /**
      * update user list to cache and database
      *
-     * @param contactList
-     */
+      */
     public void updateContactList(List<EaseUser> contactInfoList) {
          for (EaseUser u : contactInfoList) {
             contactList.put(u.getUsername(), u);
@@ -1248,8 +1258,8 @@ public class SuperWeChatHelper {
     public User getCurrentUser() {
         if (currentUser == null) {
             String username = EMClient.getInstance().getCurrentUser();
-            L.e(TAG,"getCurrentUsername====="+username);
-            currentUser = new User(username);
+            L.e(TAG,"getCurrentUsena");
+            currentUser = new User();
         }
         return currentUser;
     }
