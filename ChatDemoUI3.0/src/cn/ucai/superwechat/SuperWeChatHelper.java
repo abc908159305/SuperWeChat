@@ -1297,6 +1297,7 @@ public class SuperWeChatHelper {
         setContactList(null);
         setRobotList(null);
         getUserProfileManager().reset();
+        setAppContactList(null);
         SuperWeChatDBManager.getInstance().closeDB();
     }
 
