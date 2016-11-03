@@ -224,14 +224,15 @@ public class SuperWeChatHelper {
 
             @Override
             public User getAppUser(String username) {
-                String name = SuperWeChatHelper.getInstance().getCurrentUser().getMUserName();
+                return getAppUserInfo(username);
+                /*String name = SuperWeChatHelper.getInstance().getCurrentUser().getMUserName();
                 if (username.equals(name)) {
                     return SuperWeChatHelper.getInstance().getCurrentUser();
                 } else {
                     UserDao dao = new UserDao(SuperWeChatApplication.getInstance());
                     User user = dao.getUser(username);
                     return user;
-                }
+                }*/
             }
         });
 
@@ -371,6 +372,21 @@ public class SuperWeChatHelper {
                 return intent;
             }
         });
+    }
+
+    private User getAppUserInfo(String username){
+        // To get instance of EaseUser, here we get it from the user list in memory
+        // You'd better cache it if you get it from your server
+        User user = null;
+        getUserProfileManager().getCurrentUserInfo();
+        user = getAppContactList().get(username);
+
+        // if user is not in your contacts, set inital letter for him/her
+        if(user == null){
+            user = new User(username);
+            EaseCommonUtils.setAppUserInitialLetter(user);
+        }
+        return user;
     }
 
     EMConnectionListener connectionListener;

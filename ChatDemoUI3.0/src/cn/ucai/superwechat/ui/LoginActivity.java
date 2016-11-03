@@ -264,6 +264,13 @@ public class LoginActivity extends BaseActivity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (pd != null) {
+            pd.dismiss();
+        }
+    }
 
     @OnClick({R.id.btn_login, R.id.tv_Register, R.id.tv_hint,R.id.iv_Back})
     public void onClick(View view) {
