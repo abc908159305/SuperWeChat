@@ -2,10 +2,8 @@ package cn.ucai.superwechat;
 
 import android.content.Context;
 
-import cn.ucai.superwechat.db.UserDao;
-import cn.ucai.superwechat.domain.RobotUser;
-import cn.ucai.superwechat.utils.PreferenceManager;
 import com.hyphenate.easeui.domain.EaseUser;
+import com.hyphenate.easeui.domain.User;
 import com.hyphenate.easeui.model.EaseAtMessageHelper;
 
 import java.util.ArrayList;
@@ -13,11 +11,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import cn.ucai.superwechat.db.UserDao;
+import cn.ucai.superwechat.domain.RobotUser;
+import cn.ucai.superwechat.utils.PreferenceManager;
+
 public class SuperWeChatModel {
     UserDao dao = null;
     protected Context context = null;
     protected Map<Key,Object> valueCache = new HashMap<Key,Object>();
-    
+    private Map<String, User> appContactList;
+
     public SuperWeChatModel(Context ctx){
         context = ctx;
         PreferenceManager.init(context);
@@ -266,7 +269,23 @@ public class SuperWeChatModel {
     public boolean isCustomServerEnable(){
         return PreferenceManager.getInstance().isCustomServerEnable();
     }
-    
+
+    public void saveAppContact(User user){
+        UserDao dao = new UserDao(context);
+        dao.saveAppContact(user);
+    }
+
+    public Map<String, User> getAppContactList() {
+        UserDao dao = new UserDao(context);
+        return dao.getAppContactList();
+    }
+
+    public boolean saveAppContactList(List<User> contactList) {
+        UserDao dao = new UserDao(context);
+        dao.saveAppContactList(contactList);
+        return true;
+    }
+
     enum Key{
         VibrateAndPlayToneOn,
         VibrateOn,

@@ -1,7 +1,6 @@
 package com.hyphenate.easeui.utils;
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -74,7 +73,6 @@ public class EaseUserUtils {
     public static void setAppUserNick(String username,TextView textView){
         if(textView != null){
             User user = userProvider.getAppUser(username);
-            Log.e("main", "user===-====" + user);
             if(user != null && user.getMUserNick() != null){
                 textView.setText(user.getMUserNick());
             }else{
