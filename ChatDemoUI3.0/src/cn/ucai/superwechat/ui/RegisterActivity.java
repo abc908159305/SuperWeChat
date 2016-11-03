@@ -36,6 +36,7 @@ import cn.ucai.superwechat.bean.Result;
 import cn.ucai.superwechat.data.NetDao;
 import cn.ucai.superwechat.data.OkHttpUtils;
 import cn.ucai.superwechat.utils.CommonUtils;
+import cn.ucai.superwechat.utils.L;
 import cn.ucai.superwechat.utils.MD5;
 import cn.ucai.superwechat.utils.MFGT;
 
@@ -44,6 +45,7 @@ import cn.ucai.superwechat.utils.MFGT;
  *
  */
 public class RegisterActivity extends BaseActivity {
+    static final String TAG = "RegisterActivity";
     @Bind(R.id.iv_Back)
     ImageView mivBack;
     @Bind(R.id.tv_Title)
@@ -130,6 +132,7 @@ public class RegisterActivity extends BaseActivity {
                     } else {
                         if (result.getRetCode() == I.MSG_REGISTER_USERNAME_EXISTS) {
                             CommonUtils.showMsgShortToast(result.getRetCode());
+                            L.e(TAG,"result======="+result.getRetCode());
                             pd.dismiss();
                         } else {
                             unregisterAppServer();
@@ -143,7 +146,7 @@ public class RegisterActivity extends BaseActivity {
                 pd.dismiss();
             }
         });
-        registerEMServer();
+        //registerEMServer();
         unregisterAppServer();
     }
 

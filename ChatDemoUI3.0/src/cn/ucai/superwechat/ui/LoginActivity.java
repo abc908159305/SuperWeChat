@@ -205,6 +205,7 @@ public class LoginActivity extends BaseActivity {
                     Result result = ResultUtils.getResultFromJson(s, User.class);
                     if (result != null && result.isRetMsg()) {
                         User user = (User) result.getRetData();
+                        L.e(TAG,"user======"+user);
                         if (user != null) {
                             UserDao dao = new UserDao(mContext);
                             dao.saveUser(user);
@@ -218,7 +219,7 @@ public class LoginActivity extends BaseActivity {
                 } else {
                     pd.dismiss();
                 }
-                loginSuccess();
+                //loginSuccess();
             }
 
             @Override
