@@ -62,5 +62,6 @@
         android:src="@drawable/find_normal"
         android:layout_centerVertical="true"
         android:layout_marginRight="5dp"
+        android:visibility="gone"
         />
 </RelativeLayout>
