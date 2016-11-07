@@ -67,6 +67,7 @@
         android:background="@color/white"
         android:gravity="center_vertical"
         android:layout_marginTop="18dp"
+        android:visibility="gone"
         >
         <TextView
             android:id="@+id/tv_City"
@@ -93,6 +94,7 @@
         android:background="@color/white"
         android:gravity="center_vertical"
         android:layout_marginTop="2dp"
+        android:visibility="gone"
         >
         <TextView
             android:id="@+id/tv_More"

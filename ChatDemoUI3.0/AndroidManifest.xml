@@ -272,6 +272,10 @@
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"
             />
+        <activity android:name="cn.ucai.superwechat.ui.AddFriendAcrivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide"
+            />
         <activity
             android:name="cn.ucai.superwechat.ui.SettingsActivity"
             android:screenOrientation="portrait"

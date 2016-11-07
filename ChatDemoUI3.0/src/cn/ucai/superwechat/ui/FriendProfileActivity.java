@@ -2,6 +2,7 @@ package cn.ucai.superwechat.ui;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +14,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.ucai.superwechat.I;
 import cn.ucai.superwechat.R;
+import cn.ucai.superwechat.SuperWeChatHelper;
 import cn.ucai.superwechat.utils.MFGT;
 
 /**
@@ -31,6 +33,13 @@ public class FriendProfileActivity extends BaseActivity {
     TextView mtvUserName;
 
     User user = null;
+    @Bind(R.id.btn_AddContact)
+    Button mbtnAddContact;
+    @Bind(R.id.btn_Message)
+    Button mbtnMessage;
+    @Bind(R.id.btn_Video_Message)
+    Button mbtnVideoMessage;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,14 +57,39 @@ public class FriendProfileActivity extends BaseActivity {
         mtvTitle.setVisibility(View.VISIBLE);
         mtvTitle.setText(getString(R.string.userinfo_txt_profile));
         setUserInfo();
+        isFriend();
     }
+
     private void setUserInfo() {
-        EaseUserUtils.setAppUserAvatar(this,user.getMUserName(),mivAvatar);
-        EaseUserUtils.setAppUserNick(user.getMUserName(),mtvUserNick);
-        EaseUserUtils.setAppUserNameWithNo(user.getMUserName(),mtvUserName);
+        EaseUserUtils.setAppUserAvatar(this, user.getMUserName(), mivAvatar);
+        EaseUserUtils.setAppUserNick(user.getMUserNick(), mtvUserNick);
+        EaseUserUtils.setAppUserNameWithNo(user.getMUserName(), mtvUserName);
     }
-    @OnClick(R.id.iv_Back)
-    public void onBack() {
-        MFGT.finish(this);
+
+
+    public void isFriend() {
+        if (SuperWeChatHelper.getInstance().getAppContactList().containsKey(user.getMUserName())) {
+            mbtnMessage.setVisibility(View.VISIBLE);
+            mbtnVideoMessage.setVisibility(View.VISIBLE);
+        } else {
+            mbtnAddContact.setVisibility(View.VISIBLE);
+        }
+
+    }
+
+    @OnClick({R.id.btn_AddContact, R.id.btn_Message, R.id.btn_Video_Message,R.id.iv_Back})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_AddContact:
+                MFGT.gotoAddFriendMsg(this,user.getMUserName());
+                break;
+            case R.id.btn_Message:
+                break;
+            case R.id.btn_Video_Message:
+                break;
+            case R.id.iv_Back:
+                MFGT.finish(this);
+                break;
+        }
     }
 }
