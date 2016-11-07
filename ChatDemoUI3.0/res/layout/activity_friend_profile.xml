@@ -27,7 +27,7 @@
             android:textColor="@color/black2"
             android:layout_toRightOf="@id/iv_Avatar"
             android:textSize="18dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginTop="5dp"
             />
         <TextView
@@ -38,7 +38,7 @@
             android:layout_toRightOf="@id/iv_Avatar"
             android:layout_below="@+id/tv_userNick"
             android:textSize="18dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginTop="5dp"
             />
     </RelativeLayout>
@@ -105,6 +105,18 @@
             />
     </LinearLayout>
     <Button
+        android:id="@+id/btn_AddContact"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:background="@color/mygreen"
+        android:layout_gravity="center_horizontal"
+        android:text="添加到通讯录"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        />
+    <Button
         android:id="@+id/btn_Message"
         android:layout_width="370dp"
         android:layout_height="wrap_content"
@@ -114,6 +126,7 @@
         android:textColor="@color/white"
         android:textSize="18dp"
         android:layout_marginTop="20dp"
+        android:visibility="gone"
         />
     <Button
         android:id="@+id/btn_Video_Message"
@@ -125,5 +138,6 @@
         android:textColor="@color/black2"
         android:textSize="18dp"
         android:layout_marginTop="20dp"
+        android:visibility="gone"
         />
 </LinearLayout>
