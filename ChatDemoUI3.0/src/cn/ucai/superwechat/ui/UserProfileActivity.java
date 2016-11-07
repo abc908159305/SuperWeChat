@@ -238,12 +238,15 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
         dialog = ProgressDialog.show(this, getString(R.string.dl_update_photo), getString(R.string.dl_waiting));
         dialog.show();
         File file = saveBitmapFile(picData);
+        L.e(TAG,"file==="+file);
         NetDao.updateAvatar(this, user.getMUserName(), file, new OkHttpUtils.OnCompleteListener<String>() {
             @Override
             public void onSuccess(String s) {
                 if (s != null) {
                     Result result = ResultUtils.getResultFromJson(s, User.class);
                     if (result != null && result.isRetMsg()) {
+                        User u = (User) result.getRetData();
+                        SuperWeChatHelper.getInstance().saveAppContact(u);
                         setPicToView(picData);
                     } else {
                         dialog.dismiss();
@@ -289,7 +292,10 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
             Bitmap photo = extras.getParcelable("data");
             Drawable drawable = new BitmapDrawable(getResources(), photo);
             mivProfileAvatar.setImageDrawable(drawable);
-            uploadUserAvatar(Bitmap2Bytes(photo));
+            dialog.dismiss();
+            Toast.makeText(UserProfileActivity.this, getString(R.string.toast_updatephoto_success),
+                    Toast.LENGTH_SHORT).show();
+            //uploadUserAvatar(Bitmap2Bytes(photo));
         }
 
     }
@@ -303,10 +309,9 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        dialog.dismiss();
+
                         if (avatarUrl != null) {
-                            Toast.makeText(UserProfileActivity.this, getString(R.string.toast_updatephoto_success),
-                                    Toast.LENGTH_SHORT).show();
+
                         } else {
                             Toast.makeText(UserProfileActivity.this, getString(R.string.toast_updatephoto_fail),
                                     Toast.LENGTH_SHORT).show();
@@ -367,7 +372,7 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
         if (extras != null) {
             Bitmap bitmap = extras.getParcelable("data");
             String imagePath = EaseImageUtils.getImagePath(user.getMUserName()+ I.AVATAR_SUFFIX_JPG);
-            File file = new File("imagePath");
+            File file = new File(imagePath);
             L.e("file path=="+file.getAbsolutePath());
             try {
                 BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
