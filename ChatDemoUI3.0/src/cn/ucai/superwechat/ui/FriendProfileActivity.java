@@ -84,6 +84,7 @@ public class FriendProfileActivity extends BaseActivity {
                 MFGT.gotoAddFriendMsg(this,user.getMUserName());
                 break;
             case R.id.btn_Message:
+                MFGT.gotoChat(this,user.getMUserName());
                 break;
             case R.id.btn_Video_Message:
                 break;
