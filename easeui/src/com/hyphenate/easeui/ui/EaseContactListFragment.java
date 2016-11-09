@@ -151,7 +151,6 @@ public class EaseContactListFragment extends EaseBaseFragment {
         
     }
 
-
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
