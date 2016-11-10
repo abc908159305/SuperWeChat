@@ -77,7 +77,7 @@ public class ContactListFragment extends EaseContactListFragment {
         //add loading view
         loadingView = LayoutInflater.from(getActivity()).inflate(R.layout.em_layout_loading_data, null);
         contentContainer.addView(loadingView);
-
+        hideTitleBar();
         registerForContextMenu(listView);
     }
     
