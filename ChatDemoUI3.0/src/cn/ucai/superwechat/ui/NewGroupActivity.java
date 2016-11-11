@@ -220,7 +220,7 @@ public class NewGroupActivity extends BaseActivity {
                     }
                 } else {
                     progressDialog.dismiss();
-                    CommonUtils.showMsgShortToast(result.getRetCode());
+                    CommonUtils.showShortToast(R.string.Failed_to_create_groups);
                 }
             }
         }

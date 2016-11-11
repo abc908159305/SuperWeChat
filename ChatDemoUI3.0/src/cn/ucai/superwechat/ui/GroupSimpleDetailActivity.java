@@ -64,7 +64,7 @@ public class GroupSimpleDetailActivity extends BaseActivity {
 		}
 		
 		tv_name.setText(groupname);
-		EaseUserUtils.setAppGroupAvatar(this,group.getGroupId(),
+		EaseUserUtils.setAppGroupAvatar(this,groupid,
 				(ImageView)findViewById(R.id.avatar));
 		
 		if(group != null){

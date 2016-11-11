@@ -182,7 +182,7 @@ public class PublicGroupsActivity extends BaseActivity {
 				convertView = inflater.inflate(R.layout.em_row_group, parent, false);
 			}
 			((TextView) convertView.findViewById(R.id.name)).setText(getItem(position).getGroupName());
-            EaseUserUtils.setAppGroupAvatar(getContext(),getItem(position - 3).getGroupId(),
+            EaseUserUtils.setAppGroupAvatar(getContext(),getItem(position).getGroupId(),
                     (ImageView) convertView.findViewById(R.id.avatar));
 			return convertView;
 		}
