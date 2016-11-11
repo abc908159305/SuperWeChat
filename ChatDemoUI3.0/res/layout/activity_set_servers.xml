@@ -10,7 +10,9 @@
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:titleBarLeftImage="@drawable/ease_mm_title_back" />
+        app:titleBarLeftImage="@drawable/ease_mm_title_back"
+        app:setBackgroundColor="@color/black"
+        />
 
     <EditText
         android:id="@+id/et_rest"
