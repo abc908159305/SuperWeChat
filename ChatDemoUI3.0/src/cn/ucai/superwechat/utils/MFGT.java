@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
-import com.hyphenate.easeui.domain.User;
-
 import cn.ucai.superwechat.I;
 import cn.ucai.superwechat.R;
 import cn.ucai.superwechat.ui.AddContactActivity;
@@ -51,10 +49,10 @@ public class MFGT {
     public static void gotoAddFriend(Activity context) {
         startActivity(context, AddContactActivity.class);
     }
-    public static void gotoFriendProfile(Activity context,User user) {
+    public static void gotoFriendProfile(Activity context,String username) {
         Intent intent = new Intent();
         intent.setClass(context, FriendProfileActivity.class);
-        intent.putExtra(I.User.USER_NAME, user);
+        intent.putExtra(I.User.USER_NAME, username);
         startActivity(context,intent);
     }
     public static void gotoAddFriendMsg(Activity context,String username) {
