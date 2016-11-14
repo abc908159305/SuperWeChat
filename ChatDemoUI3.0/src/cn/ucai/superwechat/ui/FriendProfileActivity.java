@@ -104,8 +104,10 @@ public class FriendProfileActivity extends BaseActivity {
     }
 
     private void syncFail() {
-        MFGT.finish(this);
-        return;
+        if (isFriend) {
+            MFGT.finish(this);
+            return;
+        }
     }
 
     private void initView() {
